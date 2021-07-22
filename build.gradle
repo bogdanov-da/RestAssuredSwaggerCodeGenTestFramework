@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'org.hidetake.swagger.generator' version '2.18.2'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    swaggerCodegen 'io.swagger:swagger-codegen-cli:2.4.21'
+    swaggerCodegen 'io.swagger.codegen.v3:swagger-codegen-cli:3.0.27'
+    swaggerCodegen 'org.openapitools:openapi-generator-cli:3.3.4'
+    compile group: 'io.rest-assured', name: 'rest-assured', version: '4.4.0'
+    compile 'io.gsonfire:gson-fire:1.8.2'
+    implementation group: 'io.swagger', name: 'swagger-annotations', version: '1.6.2'
+    testImplementation group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '5.7.2'
+    implementation group: 'com.squareup.okio', name: 'okio', version: '2.10.0'
+    implementation group: 'org.threeten', name: 'threetenbp', version: '1.5.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+swaggerSources {
+    petstore {
+        inputFile = file('petstore.yaml')
+        code{
+            language = 'java'
+            configFile = file('config.json')
+            //components = [apis: true, models: true, tests: true]
+            outputDir = file('build')
+        }
+    }
+}

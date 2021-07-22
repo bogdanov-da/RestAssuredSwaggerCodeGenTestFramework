@@ -1,0 +1,11 @@
+{
+  "library": "rest-assured",
+  "dateLibrary": "java8-localdatetime",
+  "java8": true,
+  "hideGenerationTimestamp": false,
+  "modelPackage": "petstore.model",
+  "apiPackage": "petstore.api",
+  "invokerPackage": "petstore",
+  "serializableModel": true,
+  "withXml": true
+}
