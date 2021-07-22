@@ -13,6 +13,7 @@
 
 package petstore.model;
 
+import java.time.OffsetDateTime;
 import java.util.Objects;
 import java.util.Arrays;
 import com.google.gson.TypeAdapter;
@@ -51,7 +52,7 @@ public class Order implements Serializable {
 
   @XmlElement(name = "shipDate")
   @SerializedName("shipDate")
-  private LocalDateTime shipDate = null;
+  private OffsetDateTime shipDate = null;
 
   /**
    * Order Status
@@ -164,7 +165,7 @@ public class Order implements Serializable {
     this.quantity = quantity;
   }
 
-  public Order shipDate(LocalDateTime shipDate) {
+  public Order shipDate(OffsetDateTime shipDate) {
     this.shipDate = shipDate;
     return this;
   }
@@ -174,11 +175,11 @@ public class Order implements Serializable {
    * @return shipDate
   **/
   @ApiModelProperty(value = "")
-  public LocalDateTime getShipDate() {
+  public OffsetDateTime getShipDate() {
     return shipDate;
   }
 
-  public void setShipDate(LocalDateTime shipDate) {
+  public void setShipDate(OffsetDateTime shipDate) {
     this.shipDate = shipDate;
   }
 

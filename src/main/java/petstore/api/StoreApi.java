@@ -289,6 +289,10 @@ public class StoreApi {
             return handler.apply(RestAssured.given().spec(reqSpec.build()).expect().spec(respSpec.build()).when().request(POST, REQ_URI));
         }
 
+        public Response execute() {
+            return RestAssured.given().spec(reqSpec.build()).expect().spec(respSpec.build()).when().request(POST, REQ_URI);
+        }
+
         /**
          * POST /store/order
          * @return Order
