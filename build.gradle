@@ -22,6 +22,7 @@ dependencies {
     testImplementation group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '5.7.2'
     implementation group: 'com.squareup.okio', name: 'okio', version: '2.10.0'
     implementation group: 'org.threeten', name: 'threetenbp', version: '1.5.1'
+    implementation group: 'io.rest-assured', name: 'json-schema-validator', version: '4.4.0'
 }
 
 test {

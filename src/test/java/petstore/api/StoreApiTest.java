@@ -68,7 +68,7 @@ public class StoreApiTest {
     @Test
     public void shouldSee200AfterDeleteOrder() {
         Long orderId = api.placeOrder().body(generateRandomOrderBody()).execute().as(Order.class).getId();
-        takePause(3000);
+        takePause(5000);
         ModelApiResponse modelApiResponse = api.deleteOrder().orderIdPath(orderId).execute(r -> r.prettyPeek())
                 .as(ModelApiResponse.class);
         Assertions.assertEquals(orderId.toString(), modelApiResponse.getMessage());
@@ -89,7 +89,7 @@ public class StoreApiTest {
      */
     @Test
     public void shouldSee200AfterGetOrderById() {
-        Order expectedOrder = api.placeOrder().body(generateRandomOrderBody()).execute().as(Order.class);;
+        Order expectedOrder = api.placeOrder().body(generateRandomOrderBody()).execute().as(Order.class);
         Order actualOrder = api.getOrderById().orderIdPath(expectedOrder.getId()).execute(r -> r.prettyPeek()).as(Order.class);
         Assertions.assertEquals(expectedOrder, actualOrder);
     }

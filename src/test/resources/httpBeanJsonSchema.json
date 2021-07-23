@@ -1,0 +1,50 @@
+{
+  "title": "Validate json document by httpBean create order",
+  "description": "Validate json document by httpBean create order",
+  "type": "object",
+  "required": ["data", "headers", "json", "origin", "url"],
+  "minProperties": 8,
+  "properties": {
+    "json": {
+      "type": "object",
+      "required": ["custemail", "custname", "custtel", "topping"],
+      "properties": {
+        "comments": {
+          "type": "string"
+        },
+        "custemail": {
+          "type": "string"
+        },
+        "custname": {
+          "type": "string"
+        },
+        "custtel": {
+          "type": "string"
+        },
+        "delivery": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string"
+        },
+        "topping": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "headers": {
+      "type": "object",
+      "minProperties": 7
+    },
+    "origin": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}
